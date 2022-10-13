@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LanguageParadigme{% endblock %}
+
+{% block body %}
+    <h1>LanguageParadigme</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ language_paradigme.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_language_paradigme_index') }}">back to list</a>
+
+    <a href="{{ path('app_language_paradigme_edit', {'id': language_paradigme.id}) }}">edit</a>
+
+    {{ include('language_paradigme/_delete_form.html.twig') }}
+{% endblock %}
