@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/language/exemple')]
+#[Route('/languageexemple')]
 class LanguageExempleController extends AbstractController
 {
     #[Route('/', name: 'app_language_exemple_index', methods: ['GET'])]

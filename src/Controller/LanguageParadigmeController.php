@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/language/paradigme')]
+#[Route('/languageparadigme')]
 class LanguageParadigmeController extends AbstractController
 {
     #[Route('/', name: 'app_language_paradigme_index', methods: ['GET'])]

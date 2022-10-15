@@ -18,12 +18,7 @@ class ParadigmeFixtures extends Fixture
         $paradigmeImp = new Paradigme();
         $paradigmeImp->setName("La programmation impérative");
 
-        //ajout d'un paradigme non impératif
-        $paradigmeNoImp = new Paradigme();
-        $paradigmeNoImp->setName('Programmation non impérative');
-
         $manager->persist($paradigmeImp);
-        $manager->persist($paradigmeNoImp);
 
         $manager->flush();
 
