@@ -23,19 +23,21 @@ class LanguageExempleTypeFixtures extends Fixture
          Variables that have numeric values are of type int. 
          Variables that have decimal values are of type float. 
          And variables that have values consisting of letters or other characters are of type str (short for string).');
+        $languageExempleTypeVar->setLanguageExemple($this->getReference(LanguageExempleFixtures::LANGUAGE_EXEMPLE_PY));
 
         $languageExempleTypeFunc = new LanguageExempleType();
         $languageExempleTypeFunc->setName('Function');
         $languageExempleTypeFunc->setDescription('A function is a block of organized,
          reusable code that is used to perform a single, related action.');
+        $languageExempleTypeFunc->setLanguageExemple($this->getReference(LanguageExempleFixtures::LANGUAGE_EXEMPLE_PY));
 
         $manager->persist($languageExempleTypeVar);
         $manager->persist($languageExempleTypeFunc);
 
+        $manager->flush();
+
         $this->addReference(self::LANGUAGE_EXEMPLE_TYPE_PY_VAR, $languageExempleTypeVar);
         $this->addReference(self::LANGUAGE_EXEMPLE_TYPE_PY_FUNC, $languageExempleTypeFunc);
-
-        $manager->flush();
 
     }
 }

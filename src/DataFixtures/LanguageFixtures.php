@@ -4,11 +4,12 @@ namespace App\DataFixtures;
 
 use App\Entity\Language;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
 class LanguageFixtures extends Fixture
 {
-    public const LANGUAGE_PYTHON_FIXTURES = 'LANGUAGE_PYTHON';
+    public const LANGUAGE_PYTHON_FIXTURES = 'languagePython';
 
     public function load(ObjectManager $manager): void
     {
@@ -22,14 +23,13 @@ class LanguageFixtures extends Fixture
         $language->setDeveloppementSpeed(5);
         $language->setDocumentation('https://docs.python.org/3/');
         $language->setRepository('https://github.com/python/cpython');
-
-        $language->addLanguageParadigme($this->getReference(LanguageParadigmeFixtures::LANGUAGE_PARADIGME_FIXTURES));
-        $language->addLanguageExemple($this->getReference(LanguageExempleFixtures::LANGUAGE_EXEMPLE_PY));
-
-        $this->addReference(self::LANGUAGE_PYTHON_FIXTURES, $language);
+        $language->setLanguageExecution($this->getReference(LanguageExecutionFixtures::LANGUAGE_EXECUTION_I_FIXTURES));
 
         $manager->persist($language);
 
         $manager->flush();
+
+        $this->addReference(self::LANGUAGE_PYTHON_FIXTURES, $language);
     }
+
 }

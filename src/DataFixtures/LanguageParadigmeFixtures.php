@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\LanguageParadigme;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
 class LanguageParadigmeFixtures extends Fixture
@@ -13,14 +14,14 @@ class LanguageParadigmeFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $languageParadigme = new LanguageParadigme();
-        $languageParadigme->addParadigme($this->getReference(ParadigmeFixtures::PARADIGME_IMP_FIXTURES));
+        $languageParadigme->setLanguageId($this->getReference(LanguageFixtures::LANGUAGE_PYTHON_FIXTURES));
+        $languageParadigme->setParadigmeId($this->getReference(ParadigmeFixtures::PARADIGME_IMP_FIXTURES));
 
         $manager->persist($languageParadigme);
 
         $manager->flush();
 
-
         $this->addReference(self::LANGUAGE_PARADIGME_FIXTURES, $languageParadigme);
-
     }
+
 }

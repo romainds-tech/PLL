@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LanguageExecution{% endblock %}
+
+{% block body %}
+    <h1>Create new LanguageExecution</h1>
+
+    {{ include('language_execution/_form.html.twig') }}
+
+    <a href="{{ path('app_language_execution_index') }}">back to list</a>
+{% endblock %}

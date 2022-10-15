@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Paradigme;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
 class ParadigmeFixtures extends Fixture
@@ -16,14 +17,17 @@ class ParadigmeFixtures extends Fixture
 
         $paradigmeImp = new Paradigme();
         $paradigmeImp->setName("La programmation impérative");
-        $paradigmeImp->addLanguageParadigme($this->getReference(LanguageParadigmeFixtures::LANGUAGE_PARADIGME_FIXTURES));
 
-        $this->addReference(self::PARADIGME_IMP_FIXTURES, $paradigmeImp);
+        //ajout d'un paradigme non impératif
+        $paradigmeNoImp = new Paradigme();
+        $paradigmeNoImp->setName('Programmation non impérative');
 
         $manager->persist($paradigmeImp);
+        $manager->persist($paradigmeNoImp);
 
         $manager->flush();
 
+        $this->addReference(self::PARADIGME_IMP_FIXTURES, $paradigmeImp);
 
     }
 }

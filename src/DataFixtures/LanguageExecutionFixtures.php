@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\LanguageExecution;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
 class LanguageExecutionFixtures extends Fixture
@@ -25,8 +26,6 @@ class LanguageExecutionFixtures extends Fixture
         $languageExecutionI = new LanguageExecution();
         $languageExecutionI->setName("Interpreter");
 
-        $languageExecutionI->addLanguage($this->getReference(LanguageFixtures::LANGUAGE_PYTHON_FIXTURES));
-
 
         $manager->persist($languageExecutionT);
         $manager->persist($languageExecutionC);
@@ -39,6 +38,5 @@ class LanguageExecutionFixtures extends Fixture
         $this->addReference(self::LANGUAGE_EXECUTION_I_FIXTURES, $languageExecutionI);
 
     }
-
 
 }
