@@ -14,6 +14,10 @@ class LoginController extends AbstractController
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
 
+        if ($this->isGranted('ROLE_USER')) {
+            return $this->redirect('/language');
+        }
+
         $form = $this->createForm(LoginFormType::class);
 
         // get the login error if there is one
