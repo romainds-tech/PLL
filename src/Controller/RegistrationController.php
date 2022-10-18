@@ -32,6 +32,9 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            // // create admin user
+            // $user->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
+
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email
