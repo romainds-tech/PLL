@@ -1,0 +1,49 @@
+.main-header {
+    background-color: black;
+    width: 100%;
+    height: 80px;
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.main-nav {
+
+    flex: 1;
+    margin: 0 5px;
+
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+
+}
+
+.main-nav > .logo {
+    margin: 0 10% 0 3%;
+}
+
+.main-nav > .main-nav-links {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-nav > .main-nav-links > li {
+    margin: 0 10%;
+}
+
+.main-auth {
+
+    margin: 0 5px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-auth a, .main-auth a:hover, .main-auth a:visited {
+    margin: 0 5px; 
+    color: orange;
+}

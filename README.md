@@ -12,3 +12,14 @@ A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony
 
 **Enjoy!**
 
+## info 
+- if use composer : add prefix "docker compose exec" to your command
+
+## start symfony
+php -S localhost:8000 -t public
+## build fixtures
+php bin/console doctrine:fixtures:load
+## build with webpack encore
+npm run dev --watch
+yarn encore dev --watch
+
