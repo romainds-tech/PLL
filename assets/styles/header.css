@@ -32,6 +32,9 @@
 .main-nav > .main-nav-links > li {
     margin: 0 10%;
 }
+.main-nav > .main-nav-links > li > a {
+    white-space: nowrap;
+}
 
 .main-auth {
 
