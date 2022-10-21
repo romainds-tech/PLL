@@ -19,7 +19,8 @@
         {% endblock %}
     </head>
     <body>
-        {% block header %}{% endblock %}
+        {% block header %}
+            {% include 'layouts/header.html.twig' %}{% endblock %}
         {% block body %}{% endblock %}
     </body>
 </html>
