@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paradigme index{% endblock %}
+
+{% block body %}
+    <h1>Paradigme index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for paradigme in paradigmes %}
+            <tr>
+                <td>{{ paradigme.id }}</td>
+                <td>{{ paradigme.name }}</td>
+                <td>
+                    <a href="{{ path('app_paradigme_show', {'id': paradigme.id}) }}">show</a>
+                    <a href="{{ path('app_paradigme_edit', {'id': paradigme.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_paradigme_new') }}">Create new</a>
+{% endblock %}

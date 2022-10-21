@@ -24,6 +24,10 @@ class LanguageController extends AbstractController
     #[Route('/new', name: 'app_language_new', methods: ['GET', 'POST'])]
     public function new(Request $request, LanguageRepository $languageRepository): Response
     {
+        if (!$this->isGranted('ROLE_ADMIN')) {
+            return $this->redirect('/language');
+        }
+
         $language = new Language();
         $form = $this->createForm(LanguageType::class, $language);
         $form->handleRequest($request);
@@ -51,6 +55,10 @@ class LanguageController extends AbstractController
     #[Route('/{id}/edit', name: 'app_language_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Language $language, LanguageRepository $languageRepository): Response
     {
+        if (!$this->isGranted('ROLE_ADMIN')) {
+            return $this->redirect('/language');
+        }
+
         $form = $this->createForm(LanguageType::class, $language);
         $form->handleRequest($request);
 
@@ -69,6 +77,10 @@ class LanguageController extends AbstractController
     #[Route('/{id}', name: 'app_language_delete', methods: ['POST'])]
     public function delete(Request $request, Language $language, LanguageRepository $languageRepository): Response
     {
+        if (!$this->isGranted('ROLE_ADMIN')) {
+            return $this->redirect('/language');
+        }
+        
         if ($this->isCsrfTokenValid('delete'.$language->getId(), $request->request->get('_token'))) {
             $languageRepository->remove($language, true);
         }

@@ -3,7 +3,7 @@
 {% block title %}Language index{% endblock %}
 
 {% block body %}
-    <h1>Language index YO</h1>
+    <h1>Language index</h1>
 
     <table class="table">
         <thead>
@@ -16,6 +16,9 @@
                 <th>Developpement_speed</th>
                 <th>Documentation</th>
                 <th>Repository</th>
+                <th>Execution du language</th>
+                <th>Paradigmes</th>
+                <th>Exemples</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -30,6 +33,19 @@
                 <td>{{ language.developpementSpeed }}</td>
                 <td>{{ language.documentation }}</td>
                 <td>{{ language.repository }}</td>
+                <td>{{ language.languageExecution.name }}</td>
+                <td>
+                    {% for paradigm in language.languageParadigmes %}
+                        {% for oneparadigm in paradigm %}
+                            {{ oneparadigm.name }}<br>
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+
+                <td>
+                    {% for example in language.languageExemple %}
+                        {{ example.code }}<br>
+                    {% endfor %}
                 <td>
                     <a href="{{ path('app_language_show', {'id': language.id}) }}">show</a>
                     <a href="{{ path('app_language_edit', {'id': language.id}) }}">edit</a>
